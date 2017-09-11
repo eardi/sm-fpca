@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+
+%-----------------------------------------------------------------------------
+% PDF setup
+%-----------------------------------------------------------------------------
+%\usepackage{thumbpdf}
+%\usepackage[pdftex]{graphicx}
+%\usepackage[pdftex]{color} % black,white,red,green,blue,cyan,magenta,yellow
+%\definecolor{myBlue}{rgb}{0.0,0.0,0.55}
+%\usepackage[pdftex,colorlinks=true,citecolor=myBlue,linkcolor=myBlue]{hyperref}
+
+%-----------------------------------------------------------------------------
+% Additional packages
+%-----------------------------------------------------------------------------
+%\usepackage{multibib}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage{color}      % colored text, See "Graphics and Colour with LaTeX" by Patrick W. Daly
+%\usepackage{subfigure}
+\usepackage{psfrag}
+%\usepackage[nottoc,notbib,notindex,notlot,notlof]{tocbibind}
+
+%-----------------------------------------------------------------------------
+% Dimensions
+%-----------------------------------------------------------------------------
+\setlength{\parindent}{2em} \setlength{\parskip}{0pt}
+\setlength{\headheight}{0.0in} \setlength{\headsep}{0.0in}
+\setlength{\headsep}{0.0in} \setlength{\topmargin}{0.0in}
+\setlength{\textheight}{9.2in} %%% 8.66in = 220mm
+\setlength{\textwidth}{6.6in}  %%% 6.50in = 165mm
+\setlength{\evensidemargin}{0.0in}
+\setlength{\oddsidemargin}{-0.15in}
+\def\linespacing#1{\renewcommand{\baselinestretch}{#1}\small\normalsize}
+
+%-----------------------------------------------------------------------------
+% Symbols
+%-----------------------------------------------------------------------------
+\def\tbar{|\hspace*{-0.15em}|\hspace*{-0.15em}|}
+\def\Ahatstar{{}^{*}\!\!\hat{A}}
+\def\bold#1{{\bf #1}}
+\def\text#1{{\rm #1}}
+\def\calg#1{{\cal #1}}
+\def\bbbb#1{{\mathbb #1}}
+\def\PLTMG{{\sc PLTMG}}
+\def\MC{{\sc MC}}
+\def\MCX{{\sc MCX}}
+\def\MALOC{{\sc MALOC}}
+\def\SG{{\sc SG}}
+\def\MCLAB{{\sc MCLab}}
+\def\APBS{{\sc APBS}}
+\def\FETK{{\sc FE}{\small tk}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\Lapse}{N}                  %Lapse function
+\newcommand{\hme}{\hat g}               %background metric
+\newcommand{\hnabla}{\hat \nabla}       %background covariant derivative
+\newcommand{\hGamma}{\hat \Gamma}       %background Christoffel
+\newcommand{\Shift}{X}                  %Shift Vectorfield
+\newcommand{\Lie}{{\mathcal L}}         %Lie derivative
+\newcommand{\del}{\delta}               %gauge quantity
+\newcommand{\tr}{{\text{\rm tr}}}       %trace
+\newenvironment{enumerateX}
+{\begin{list}{\arabic{enumi}.}{
+     \usecounter{enumi}
+     \leftmargin 2.0em\topsep 0.2em\itemsep -0.2em\labelwidth 50.0em}}
+{\end{list}}
+\newenvironment{itemizeX}
+{\begin{list}{\labelitemi}{
+     \leftmargin 2.0em\topsep 0.2em\itemsep -0.2em\labelwidth 50.0em}}
+{\end{list}}
+%\newenvironment{listX}
+%{\begin{list}{}{
+%     \leftmargin 2.0em\topsep 0.2em\itemsep -0.2em\labelwidth 50.0em}}
+%{\end{list}}
+%\newtheorem{lemma}{Lemma}
+%\newtheorem{theorem}{Theorem}
+%
+%\newcommand{\RR}{{\mathbb{R}}}
+%\newcommand{\ynder}{{\partial_\nu y}}
+%\newcommand{\pnder}{{\partial_\nu p}}
+%\newcommand{\domain}{\Omega}
+%\newcommand{\bound}{\Gamma}
+%\newcommand{\nablab}{{\nabla_{\bound}}}
+%
+%\newcommand{\vX}{\vec{X}}
+%\newcommand{\vk}{{\vec \kappa}}
+%\newcommand{\vn}{{\vec\nu}}
+%\newcommand{\vV}{{\vec V}}
+%\newcommand{\vh}{{\vec h}}
+
+%-----------------------------------------------------------------------------
+% Macros for notes
+%---------------------------------
+ \newcommand{\mnote}[1]{{\marginpar{\raggedright\tiny\em
+     $\!\!\!\!\!\!\,\bullet$ #1}}} % enable marginal notes
+ \newcommand{\tnote}[1]{{#1}}      % enable text notes
+%---------------------------------
+%\newcommand{\mnote}[1]{{}}        % disable marginal notes
+%\newcommand{\tnote}[1]{{}}        % disable text notes
+%-----------------------------------------------------------------------------
+
+\newcommand{\vnode}[1]{\psfrag{v#1}{$V_{#1}$}}
+\newcommand{\eedge}[1]{\psfrag{e#1}{$E_{#1}$}}
+\newcommand{\ttri}[1]{\psfrag{t#1}{$T_{#1}$}}
+
+%-----------------------------------------------------------------------------
+% Proposal body
+%-----------------------------------------------------------------------------
+
+\newcounter{savecount}
+\begin{document}
+
+\linespacing{1.0}
+
+\input{Bisection_Diagram}
+
+%%--------------------------------------------------------------------
+%% References
+%%--------------------------------------------------------------------
+%
+%\vfill\eject
+%\setcounter{page}{1}
+
+\end{document}

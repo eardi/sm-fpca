@@ -1,0 +1,15 @@
+START OF LOG FILE
+---------------------------------------------------
+Description: UNIT-TEST OF LOG FILE
+---------------------------------------------------
+
+This is just a test...
+
+Is it still working...
+
+Here is a really long comment.
+  Make sure the files diff to 0!
+
+---------------------------------------------------
+END OF LOG FILE
+---------------------------------------------------
