@@ -7,7 +7,7 @@ function [vertex,face,signal] = read_vtk_el(filename)
 %   'vertex' is a 'nb.vert x 3' array specifying the position of the vertices.
 %   'face' is a 'nb.face x 2' (POLYGONS) or 'nb.face x 2' (LINES) array specifying the connectivity of the mesh.
 %
-% Authors : this file is part of the fshapesTk by B. Charlier, N. Charon, A. Trouve (2012-2014)  
+% Authors : this file is a modified version of read_vtk in fshapesTk by B. Charlier, N. Charon, A. Trouve (2012-2014)  
 
 
 fid = fopen(filename,'r');
