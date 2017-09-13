@@ -6,7 +6,7 @@ function [] = write_vtk_el(vertex,face,signal,fname,signal_name)
 %   fname : name of the output file
 %   signal_name (optional) : name of the functional to be set in the.vtk file
 %
-% Authors : this file is part of the fshapesTk by B. Charlier, N. Charon, A. Trouve (2012-2014)
+% Authors : this file is a modified version of read_vtk in fshapesTk by B. Charlier, N. Charon, A. Trouve (2012-2014)  
 
 
 if nargin == 4
