@@ -25,7 +25,7 @@ Quadrature_Order = 3;
 G1 = GeoElement(Gamma,lagrange_deg1_dim2);
 
 % define geometry representation - Domain, (default to piecewise linear)
-G1 = GeoElement(Gamma);
+%G1 = GeoElement(Gamma);
 % define a set of matrices
 MATS = Matrices(Quadrature_Order,G1);
 

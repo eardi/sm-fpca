@@ -1,0 +1,120 @@
+
+-----------------------------------------------------------
+
+Version 1.3.1   (25 June 2020) - Added ability to not use symbolic computing toolbox in "ReferenceFiniteElement"; this is useful when running *pre-generated* code on a machine with the toolbox, then copying stuff to a machine without the toolbox.  Added ability in TIGER mesh generator (3-D) to have the background grid be an exact cube (instead of jagged).  Various minor bug fixes.
+
+Version 1.3.0   (16 May  2019) - Added H(div) functionality on 2-D surfaces embedded in 3-D.  Enabled matrix-valued basis and coefficient functions.  Various small interface improvements.  Add initial functionality for assembling matrices over subsets of elements.  Restructured unit tests. The unit tests are no longer in the Matlab path.  So, if you want to run a specific unit test, then you must change into that unit test's directory to run it.
+
+Version 1.2.7   (21 Mar  2018) - Fixed minor bug in unit test with symbolic functions.  Fixed another bug in unit test with newer version of Matlab.
+
+Version 1.2.6   (14 Feb  2018) - Fixed minor bug with matching variable names (strings) (this is in the code generation).  Added functionality for symbolic constants in auto code gen for matrix assembly code and interpolation, i.e. these constants are specified at runtime by being provided by the user when calling the MEX file.  Cleaned up the interface to the TIGER mesh generator.  Other minor bug fixes.
+
+Version 1.2.5   (06 Dec  2017) - Added functionality to make DoF allocation code more automatic.  Cleaned up comments and two demos (for the FELICITY paper).
+
+Version 1.2.4   (17 Aug  2017) - Added demo for local finite element matrices.  Fixed bug with text replacement in code generation (bug happened when geometry is represented by an element with 10 or more basis functions).
+
+Version 1.2.3   (26 May  2017) - Fixed minor bug with one of the unit tests.
+
+Version 1.2.2   (25 Apr  2017) - Added GeoElementSpace to better handle higher order meshes (added demo "Curved_Domain_2D" to demonstrate iso-parametric case).  Added demo for solving Laplace-Beltrami with weak boundary conditions.  Added demo for simulating 2-D droplets driven by electrowetting (EWOD).  Updated the manual and quick-ref guide.  Minor edits to get FELICITY ready for the first journal paper submission.
+
+Version 1.2.1   (06 Apr  2017) - Updated the FEL_SaveLoad class.  Minor comments.  Changed the way ReferenceFiniteElement and FiniteElementSpace objects are created, i.e. you specify the number of components in the FiniteElementSpace class now.  Changed the syntax of how to generate code for matrix assembly, interpolation, point searches, and DoF allocators (it is better now!).  Updated the manual and wiki to coincide.  Fixed a bug in the code generation when handling variables with similar names (e.g. "mu" versus "u").  Fixed bug between linux and windows when checking directories.
+
+Version 1.2.0   (18 Nov  2016) - Added mesh element diameter routine to FELICITY Mesh classes.  Added FEM class for automating point searches on meshes.  Changed the m-file format for storing/defining a finite element.  Changed the way DoFs are allocated; the m-file format is now simpler and easier to understand.  Implemented H(curl) in 2-D and 3-D, with Nedelec 1st-kind elements plus unit tests.  Changed internal code generation for basis function transformations as well as interpolations.  Changed mesh class to use MATLAB's new "triangulation" class; some method names changed here.  Updated the manual and quickref.pdf to reflect these new changes.
+
+Version 1.1.5   (16 June 2016) - Modified the C++ matrix assembly to be more efficient when lots of sub-matrices are present; this only modifies the internals of FELICITY.
+
+Version 1.1.4   (08 June 2016) - Streamlined C++ matrix assembly-code (part 1).  This is the first step to implementing OpenMP for matrix assembly.
+
+Version 1.1.3   (20 May  2016) - Updated compile script for generating MEX files to assemble forms/matrices.  Completed the move to GitHub's wiki for the tutorials.  Fixed a minor bug with the symbolic toolbox for MATLAB r2016a.
+
+Version 1.1.2   (20 Mar  2016) - Added routine for making equilateral triangle meshes in the plane.  Moved Google-Code page to GitHub (have moved some tutorials over; still in progress).  Also, updated link on File Exchange to GitHub.  Added error detection code when given cell indices are out of range (for matrix assembly and interpolation MEX files).  Other minor changes.
+
+Version 1.1.1   (17 Jan  2016) - Cleaning up C++ Rivara bisection code to fix minor compiler warnings; removed unit test that makes MACs crash (only removed when running on a MAC).  Fixed a minor bug in one of the unit-tests with regard to FiniteElementSpace.Get_DoFs_On_Subdomain.
+
+Version 1.1.0   (05 Oct  2015) - Moved software version number format to "standard" format; we've made it to version 1.1.0!  Added test routine for quadrature rules (as well as code to generate more quadrature rules).  Fixed tolerance issue with point searching in meshes.  Updated movie making function.  Updated setting function components on sub-domains (for essential boundary conditions).
+
+Version 0.953   (22 Aug  2015) - Added unit test for solving the heat equation on a surface.  Updated image segmentation demo.  Fixed bug when matching variable text names (this was in the code generation part of FELICITY).  Changed error comment text in assembly of coefficient functions.  Add to functionality of "Delete_Data" in "FEL_SaveLoad".  Changed the functionality of "FEL_Visualize" to be more flexible in saving plots and making movies.
+
+Version 0.951   (12 Jan  2015) - Fixed minor bug with some unit tests.
+
+Version 0.95    (10 Jan  2015) - Fixed minor bugs; fixed tolerance in point search code.  Implemented the second derivative with respect to arc-length operator, and the hessian operator for functions defined on 1-D, 2-D, and 3-D domains. This includes curves and surfaces embedded in 3-D, i.e. the "surface hessian" is now implemented.  Also added the shape operator (e.g. the surface gradient of the normal vector on surfaces) to geometric functions defined on curved domains.  Updated the FEL_SaveLoad class and FEL_Visualize class.
+
+Version 0.94    (05 Aug  2014) - Fixed warning message about "simple"; fixed bug when checking multi-linearity of forms.  Changed output format of "Get_Fixed_DoFs" and "Get_Free_DoFs" to be more consistent.  Re-structured code generation to be neater with some super-classes.  Added a point searcher for 1-D, 2-D, and 3-D meshes (this includes curves and surfaces embedded in 3-D).  Added a quick reference PDF that lists the functionality of FELICITY.  Updated the PDF manual (and Google-Code page) to have new tutorials for using the point searcher.
+
+Version 0.925   (11 June 2014) - You can now mix together geometric functions from different sub-domains, in a single integral, when auto generating code for matrix assembly.  Similarly, this also applies to auto generating interpolation routines.  Fixed and added some error checking.  Added a helper class for managing the saving and loading of indexed simulation data.  Added a generic abstract class (and template example) for running finite element simulations.  These are under the "./FELICITY/Classes/ManageSim/" directory.
+
+Version 0.92    (16 Jan  2014) - Implemented a point-region (PR) quadtree for fast point searching and nearest neighbors in 2-D.  Also, added a bitree for 1-D AND an *Octree* for 3-D.  This is useful for interpolation over finite element meshes.  They can be found in the sub-directory: "./FELICITY/Static_Codes/Search_Trees".
+
+Version 0.915   (09 Aug  2013) - Moved the file "Get_Edge_Info_From_Triangles.m" into a method under the MeshTriangle class.  Reworked the DoF-Allocator code generator so that the generated MEX file is easier to use (i.e. you only need to supply the domain triangulation; no edges or neighbors are needed); generated code is also simpler.  Updated documentation to reflect new DoF allocation interface (also updated Google-Code page tutorials).  Added unit test for evaluating BDM1 on a co-dim 1 sub-domain.  Fixed some minor bugs with newer MATLAB versions.  Added some error checking to make sure bilinear and linear forms have properly formed integrand expressions.
+
+Version 0.912   (17 May  2013) - Fixed a stupid bug when using Append_Subdomain in the mesh classes.  Also included the INPOLY.m file developed by Darren Engwirda.  Added a meshing tutorial to the Google-Code page for generating bulk meshes from polygonal and polyhedral surface meshes.   Added a tutorial on defining DoFmaps for finite element (FE) spaces defined on strict sub-domains of a global mesh.  Made other slight modifications to the Google-Code page and tutorials.  Updated the PDF manual.  Made some improvements to the error checking and error messages in the FiniteElementSpace class.
+
+Version 0.91    (25 Apr  2013) - Fixed a major bug with doing re-assembly of FE matrices when given the previous sparsity pattern.  Added a demo/tutorial for solving the 3-D Laplace equation which compares matrix assembly time between assembling from scratch and re-assembly from a previous sparsity pattern.  Added an E_ODT based mesh smoother, unit tests, and a demo/tutorial.   Added a demo/tutorial that combines mesh generation *with* solving a PDE.  Minor updates to PDF manual.  Fixed minor bugs and/or added more error checking.  Note: tutorials were added to the Google-Code page.
+
+Version 0.9     (08 Mar  2013) - Updated *many* of the help comments for the FELICITY classes and subroutines.  Cleaned up internal code workings related to local mappings of basis functions to make better use of the Symbolic Computing Toolbox.  Added a MATLAB help file to display useful information to users.
+
+Version 0.89    (14 Feb  2013) - Added refToBary and baryToRef in AbstractMesh class for converting interpolation point coordinates to local coordinates in the reference cell (element).   Added automatic code generation for interpolating finite element coefficient functions on domains or subdomains.  This entailed adding some new classes, and modifying existing code.  Added unit tests and demos, as well as documentation to the PDF manual, for the interpolation code generation.  Added a tutorial (for interpolation) on the Google-Code page and a discussion forum.  Fixed minor bug related to orientation for non-H^1 functions.
+
+Version 0.876   (10 Jan  2013) - Fixed a bug related to MATLAB not successfully copying files (b/c filenames are too long!).  The "test_FELICITY" script now checks for the root FELICITY path and warns you if the path name is too long (if so, then you should re-install in a directory that is not so deeply nested).  Also updated TIGER meshing interface, as well as the meshing tutorials on the Google-Code page.  Also included the INPOLYHEDRON.m file developed by Sven Holcombe.  Implemented other minor debugging and/or include extra error checking code.
+
+Version 0.875   (16 Oct  2012) - Fixed some minor bugs with FiniteElementSpace.  Included a 3-D (quasi-uniform) tetrahedral mesh generation algorithm (TIGER) that meshes iso-surfaces; a 2-D version is also included.  Fixed other minor MEX file bugs.  Updated PDF manual and the Google-Code page.
+
+Version 0.872   (10 Sept 2012) - Fixed a few minor bugs.  Added P0 Lagrange in 3-D.  Added some methods to the FiniteElementSpace class (useful for sorting through DoF indices on sub-domains, etc.).  Added a chapter in the manual discussing the FiniteElementSpace class and some other convenience routines.
+
+Version 0.87    (03 July 2012) - Finished code for dealing with multiple subdomains of varying (intrinsic topological) dimension between 1 and 3.  Added more unit tests for this. Added some official demos.  Fixed some bugs related to the mesh classes and other minor fixes/cleanup.  Updated the FELICITY manual.  Added tutorials/demos to the google-code page; see  http://code.google.com/p/felicity-finite-element-toolbox/.
+
+Version 0.86    (26 June 2012) - Did a major rewrite of the internal workings of code generation for matrix assembly.  Can now define bilinear, linear, and ``real'' forms that involve integrating over multiple subdomains of different topological dimensions within the same script file.  Improved the syntax of the script file to be more straightforward.  Cleaned up other internal code.  Updated unit tests (and added some).
+
+Version 0.842   (02 May  2012) - Added some error checking to DoF allocation code.  Made the FiniteElementSpace class a little easier to use.  Added a simple class for accessing finite element matrices by their name alone.  Added the local mesh size as function that can be used in defining bilinear and linear forms; useful for implementing stabilizations.  Added a class for displaying basis function and local DoF information about reference finite elements.  Fixed some minor bugs.  Updated documentation.  FELICITY has over 1000 files now!
+
+Version 0.8411  (25 Apr  2012) - Fixed a fatal (but simple) code generation bug.
+
+Version 0.841   (25 Apr  2012) - Fixed a few bugs, such as variable text replacements in code generation.  Now have H(div) Brezzi-Douglas-Marini, degree 1, element (BDM1) implemented.
+
+Version 0.84    (28 Mar  2012) - I have now implemented the framework for H(div) elements; in particular, the H(div) transformation is implemented (Piola transform) and basis functions can now be (intrinsically) vector-valued.  Raviart-Thomas, lowest order, is implemented (RT0).  Adding more H(div) elements is straightforward.  Added unit tests for RT0.  Made other minor coding fixes related to code generation of basis function transformations.  Have started a Google-Code Project Hosting webpage; more info about how to use FELICITY will be posted there.
+
+Version 0.838   (19 Mar  2012) - More cleanup.  Moved codimension stuff to a separate class for mapping basis functions evaluations (and their derivatives) onto subdomains of codimension >= 0.
+
+Version 0.836   (16 Mar  2012) - Updated the code generation for computing basis functions, and coefficient functions.  Also, did general clean up for the matrix assembly code generation.  This version now works.
+
+Version 0.834   (10 Mar  2012) - Updated the code generation for computing geometric quantities, such as jacobians, etc...  This version does work, but is an intermediate update.
+
+Version 0.832   (29 Feb  2012) - Fixed some minor bugs.  Changed how the subdomain classes are generated (used for integrating over subdomains embedded in a higher dimensional manifold).
+
+Version 0.831   (10 Feb  2012) - Fixed some small bugs, including one related to a missing file (minor).  This caused the FELICITY unit tests to crash.  NOTE to USERS: please email me if FELICITY does not work ``out of the box''!
+
+Version 0.83    (21 Sept 2011) - Fully integrated the Rivara bisection algorithm into FELICITY (i.e. into the MeshTriangle class); it also manages subdomains throughout the bisection process.  Updated the documentation to have a tutorial on selective bisection of triangular meshes (also modified mesh tutorial on website).  Added a module for solving the Eikonal equation on triangular meshes.  Added appendix in the PDF manual that contains notes on how to do automatic code generation.  Fixed typos in documentation.
+
+Version 0.82    (28 July 2011) - The documentation is now up-to-date.
+
+Version 0.81    (27 July 2011) - Removed the .fml configuration file (was used for implementing matrix assembly code) and replaced it by an M-file script.  This allows for a better user interface and makes extension to tensor and mixed elements more straightforward (eventually...).  NOTE: the documentation still needs to be updated!
+
+Version 0.808   (04 July 2011) - Changed directory structure (minor).
+
+Version 0.807   (15 June 2011) - Minor bug fixes for generic matrix assembly over subdomains.
+
+Version 0.805   (21 Apr  2011) - Added classes for general mesh manipulation and *a lot* of documentation to the PDF file.  Also added more unit tests to go with the mesh classes.  Added a tutorial for the automatic DoF allocation chapter of the PDF file.
+
+Version 0.8     (28 Mar  2011) - Official Release.
+
+Version 0.7995  (26 Mar  2011) - Modified Example_1D.fml and the test code.  Also updated the pdf manual.
+
+Version 0.799   (25 Mar  2011) - FELICITY now has the ability to assemble matrices over 1-D curves embedded in a 2-D mesh of triangles.  Two unit tests are also added to test this new functionality.
+
+Version 0.797   (11 Mar  2011) - Intermediate release before FELICITY is broken to complete the implementation of assembly over sub-domains of co-dimension 1 (or 2).  This release should not affect anything on the user end.
+
+Version 0.7965  (02 Mar  2011) - More code restructuring (especially with the code generation aspect).  Assembly over sub-domains of co-dimension 1 (or 2) is still NOT done.  This release should not affect anything on the user end.
+
+Version 0.796   (22 Feb  2011) - Restructured the code to be more logical with respect to the Mesh Geometry and the FEM basis function transformation calculations.  This will make assembly over sub-domains of co-dimension 1 (or 2) easier.  This release should not affect anything on the user end.
+
+Version 0.792   (08 Feb  2011) - Improved .fml file format with "Bilinear" and "Linear" forms.  Can also define "Real" (m x n) matrix such as for computing norms or averages of finite element functions.
+
+Version 0.791   (07 Feb  2011) - Updated housekeeping files.
+
+Version 0.79    (20 Jan  2011) - DoF-numbering now includes discontinuous galerkin (DG).
+
+Version 0.78    (01 Jan  2011) - Includes auto generation of DoF-numbering, and matrix assembly now stores finite elements in user editable m-files.
+
+Version 0.75    (02 June 2010) - Initial Release.
+
+-----------------------------------------------------------

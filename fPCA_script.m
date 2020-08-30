@@ -1,5 +1,5 @@
 clear
-addpath(genpath('FELICITY_Ver1.1.0'))
+addpath(genpath('FELICITY_Ver1.3.1'))
 
 % This line sets the path of the template mesh, .vtk file format
 path_manifold = 'stem_smooth/stem_smooth.vtk';
